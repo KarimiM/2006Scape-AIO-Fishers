@@ -10,7 +10,6 @@ import org.rev317.min.api.methods.Skill;
 
 @ScriptManifest(author = "Empathy", category = Category.FISHING, description = "2006Scape AIO Fisher", name = "06Scape Fisher", servers = { "2006Scape" }, version = 1.0)
 public class EmpFisher extends Script {
-	private static ArrayList<Strategy> strategies = new ArrayList<Strategy>();
 
 
 	@Override
@@ -20,10 +19,7 @@ public class EmpFisher extends Script {
 		while (GUI.isVisible()) {
 			sleep(20);
 		}
-		strategies.add(new Fishing());
-		strategies.add(new Walking());
-		strategies.add(new Dropping());
-		provide(strategies);
+		provide(Arrays.asList(new Fishing(), new Walking(), new Dropping()));
 		MainData.startXp = Skill.FISHING.getExperience();
 		return true;
 	}
